@@ -1,0 +1,61 @@
+CREATE TABLE produtos (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  cor VARCHAR(100),
+  tamanho VARCHAR(100),
+  categoria VARCHAR(100),
+  preco INTEGER
+ );
+ 
+CREATE TABLE cliente (
+  id  INTEGER primary KEY AUTOINCREMENT,
+  nome VARCHAR(100),
+  idade INT(2, 10),
+  email VARCHAR(1000),
+  data_nascimento DATE,
+  cpf INT(2, 10),
+  telefone VARCHAR(1000
+);
+
+CREATE TABLE fornecedor (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  nome VARCHAR(100),
+  cnpj VARCHAR(21),
+  email VARCHAR(1000),
+  telefone VARCHAR(1000)
+);
+  
+CREATE TABLE compra (
+  id INTEGER PRIMARY KeY AUTOINCREMENT,
+  email VARCHAR(100),
+  cpf VARCHAR(20),
+  pagamento VARCHAR(100),
+  endereco VARCHAR(100),
+  cupon INT,
+  frete DECIMAL(10, 3),
+  valor INT,
+  status VARCHAR(40)
+);
+
+CREATE TABLE estoque (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  quantidade VARCHAR(100),
+  cor VARCHAR(10),
+  tamanho VARCHAR(10)
+);
+  
+CREATE TABLE funcionarios (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  nome VARCHAR(100),
+  email VARCHAR(100),
+  cpf VARCHAR(200),
+  cargo VARCHAR(1000),
+  telefone VARCHAR(109)
+);
+
+CREATE TABLE avaliacao (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  comentario VARCHAR(1100),
+  estrelas INT,
+  feedback VARCHAR(20)
+);
+  
