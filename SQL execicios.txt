@@ -1,0 +1,105 @@
+CREATE TABLE usuarios (
+    id INT PRIMARY KEY,
+    nome VARCHAR(30),
+    idade INT(50),
+    email VARCHAR(40),
+    telefone VARCHAR(20),
+    cpf VARCHAR(20),
+    cep VARCHAR(20)
+ );
+
+CREATE TABLE produtos (
+    id INT PRIMARY KEY,
+    nome VARCHAR(30),
+    categoria VARCHAR(10),
+    valor DECIMAL(10, 2),
+    ficha VARCHAR(500),
+    estoque INT(10, 2)
+ );
+ 
+CREATE TABLE compra ( 
+   id INT PRIMARY KEY,
+   email VARCHAR(100),
+   cpf VARCHAR(20),
+   pagamento VARCHAR(100),
+   endereço VARCHAR(100),
+   cupon INT,
+   frete DECIMAL(10, 3),
+   valor INT,
+   status VARCHAR(40)
+ );
+ 
+ CREATE TABLE avaliacao (
+    id INT PRIMARY KEY,
+    comentario VARCHAR(900),
+    estrelas INT,
+    feedback VARCHAR (100)
+ );
+ 
+ INSERT INTO usuarios (id, nome, idade, email, telefone, cpf, cep) 
+ VALUES
+(1, 'Joao Ferreiro', 25, 'joao@gmail.com', '(11) 98888-1111', '11111111111', '01001-000'),
+(2, 'Daniel S', 29, 'daniel@gmail.com', '(21) 97777-2222', '22222222222', '20040-020'),
+(3, 'Mariana Silva', 22, 'mariana@gmail.com', '(31) 96666-3333', '33333333333', '30130-010'),
+(4, 'Lucas Pereira', 34, 'lucas@gmail.com', '(41) 95555-4444', '44444444444', '80010-000'),
+(5, 'Ana Costa', 27, 'ana@gmail.com', '(51) 94444-5555', '55555555555', '90020-090'),
+(6, 'Bruno Lima', 31, 'bruno@gmail.com', '(61) 93333-6666', '66666666666', '70040-010'),
+(7, 'Fernanda Rocha', 24, 'fernanda@gmail.com', '(71) 92222-7777', '77777777777', '40020-000'),
+(8, 'Carlos Mendes', 40, 'carlos@gmail.com', '(81) 91111-8888', '88888888888', '50010-000'),
+(9, 'Juliana Alves', 28, 'juliana@gmail.com', '(91) 90000-9999', '99999999999', '66010-000'),
+(10, 'Pedro Santos', 35, 'pedro@gmail.com', '(85) 98877-1234', '10101010101', '60010-000');
+
+
+INSERT INTO produtos (id, nome, categoria, valor, ficha, estoque) 
+VALUES
+(1, 'Teclado Gamer', 'Games', 199.90, 'Teclado mecânico RGB', 50),
+(2, 'Mouse Gamer', 'Games', 149.90, 'Mouse óptico 7200 DPI', 4),
+(3, 'Headset', 'Audio', 299.99, 'Headset com microfone', 40),
+(4, 'Monitor 24', 'Info', 899.00, 'Monitor Full HD', 20),
+(5, 'Notebook i5', 'Info', 3899.00, 'Notebook 8GB RAM', 31),
+(6, 'Webcam HD', 'Info', 249.90, 'Webcam 1080p', 60),
+(7, 'Cadeira Gamer', 'Moveis', 999.90, 'Cadeira reclinável', 10),
+(8, 'Mousepad XXL', 'Games', 39.90, 'Mousepad grande', 100),
+(9, 'Caixa de Som', 'Audio', 229.00, 'Som bluetooth', 35),
+(10, 'HD Externo', 'Info', 49.90, 'HD 1TB USB 3.0', 25);
+
+
+INSERT INTO compra (id, email, cpf, pagamento, endereço, cupon, frete, valor, status) 
+VALUES
+(1, 'joao@gmail.com', '11111111111', 'pix', 'Rua A', 10, 20.000, 300, 'pago'),
+(2, 'daniel@gmail.com', '22222222222', 'cartao', 'Rua B', 20, 15.000, 700, 'enviado'),
+(3, 'mariana@gmail.com', '33333333333', 'boleto', 'Rua C', 5, 18.500, 450, 'pendente'),
+(4, 'lucas@gmail.com', '44444444444', 'pix', 'Rua D', 0, 22.000, 280, 'entregue'),
+(5, 'ana@gmail.com', '55555555555', 'cartao', 'Rua E', 15, 12.000, 520, 'cancelado'),
+(6, 'bruno@gmail.com', '66666666666', 'pix', 'Rua F', 10, 30.000, 900, 'pago'),
+(7, 'fernanda@gmail.com', '77777777777', 'boleto', 'Rua G', 0, 10.000, 150, 'pendente'),
+(8, 'carlos@gmail.com', '88888888888', 'cartao', 'Rua H', 25, 40.000, 1200, 'enviado'),
+(9, 'juliana@gmail.com', '99999999999', 'pix', 'Rua I', 5, 14.000, 350, 'entregue'),
+(10, 'pedro@gmail.com', '10101010101', 'cartao', 'Rua J', 20, 25.000, 800, 'pago');
+
+INSERT INTO avaliacao (id, comentario, estrelas, feedback) 
+VALUES
+(1, 'Produto excelente', 5, 'Excelente'),
+(2, 'Muito bom, recomendo', 4, 'Positivo'),
+(3, 'Entrega demorou', 3, 'Regular'),
+(4, 'Produto com defeito', 1, 'Negativo'),
+(5, 'Atendeu expectativas', 4, 'Bom'),
+(6, 'Qualidade media', 3, 'Regular'),
+(7, 'Nao gostei', 2, 'Ruim'),
+(8, 'Perfeito!', 5, 'Excelente'),
+(9, 'Custo beneficio bom', 4, 'Positivo'),
+(10, 'Veio errado', 1, 'Negativo');
+
+SELECT * FROM compra 
+
+SELECT * FROM produtos WHERE valor > 300
+
+SELECT * FROM produtos WHERE estoque < 30;
+
+SELECT * FROM avaliacao WHERE estrelas < 3;
+
+SELECT * FROM produtos WHERE valor < 500;
+
+UPDATE compra SET status = 'entregue' WHERE id = 1;
+
+UPDATE produtos SET estoque = 8 WHERE id = 5;
